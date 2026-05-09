@@ -1,0 +1,65 @@
+@import "tailwindcss";
+
+@theme {
+  --color-genshin-gold: #FFD700;
+  --color-genshin-amber: #FF8C00;
+  --color-genshin-dark: #1A1A2E;
+  --color-genshin-surface: #16213E;
+  --color-genshin-light: #B8B8D1;
+  --color-genshin-anemo: #74C2A8;
+  --color-genshin-geo: #FAB632;
+  --color-genshin-electro: #AF6EC8;
+  --color-genshin-dendro: #A5C23B;
+  --color-genshin-hydro: #4CC2F1;
+  --color-genshin-pyro: #EF7A35;
+  --color-genshin-cryo: #9FD6E3;
+
+  --font-sans: "Noto Sans SC", system-ui, sans-serif;
+  --font-mono: "Fira Code", monospace;
+
+  --animate-pulse-slow: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+}
+
+@layer utilities {
+  .text-glow-gold {
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+  }
+  .box-glow-gold {
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes accordion-down {
+  from { height: 0; }
+  to { height: var(--radix-accordion-content-height); }
+}
+
+@keyframes accordion-up {
+  from { height: var(--radix-accordion-content-height); }
+  to { height: 0; }
+}
+
+body {
+  background-color: var(--color-genshin-dark);
+  color: white;
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+.glass-panel {
+  background: rgba(22, 33, 62, 0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 215, 0, 0.1);
+}
+
+.clip-slanted {
+  clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+}
